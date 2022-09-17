@@ -1,2 +1,2 @@
 # Portafolio
- Pagina diseñada para la materia multimedia y diseño web
+ Pagina diseñada para la materia Javascript
