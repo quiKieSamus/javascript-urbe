@@ -1,0 +1,186 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+html {
+    height: 100%;
+    top: 0;
+}
+
+.nav-bar {
+    background-color: black;
+    text-align: center;
+    padding: 20px;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 9999;
+    position: fixed;
+    left: 0;
+    right: 0;
+    transition: top 0.3s;
+}
+.nav-list {
+    list-style: none;
+    display: grid;
+    margin: 0px;
+    color: rgb(208, 204, 204);
+}
+.nav-list a {
+    display: block;
+    color: rgb(208, 204, 204);
+}
+
+.nav-list-item {
+    padding: 20px;
+}
+
+.nav-list-item:hover {
+    background-color: blue;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.title {    
+    text-align: center;
+    color: rgb(208, 204, 204);
+    background-color: blue;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 15% 0px;
+    
+}
+
+.btn-me {
+    border-radius: 5px;
+    border: none;
+    padding: 30px;
+    font-size: 25px;
+}
+
+.objective, .projects, .one-pages, .social {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.obj-title {
+    width: 54%;
+}
+
+.obj-p {
+    max-width: 75ch;
+}
+
+/* .profile-pic {
+    width: 244px;
+    height: 344px;
+    border-radius: 1950px;
+} */
+
+.no-margin {
+    margin: 0;
+}
+
+.name-title {
+    font-size: 70px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: 1s;
+}
+
+.name-title:hover {
+    color: black;
+    font-size: 100px;
+    transition: 1s;
+}
+
+.small {
+    font-size: 24px;
+}
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 54%;
+    
+}
+
+.pro-link {
+    color: blueviolet;
+    transition: 2s;
+}
+
+.pro-link:hover {
+    color: blue;
+    transition: 0.3s;
+}
+
+.pages-container {
+    transition: 0.3s;
+    width: 54%;
+}
+
+.page-img {
+    width: 100%;
+    border-radius: 5px;
+    border: solid 5px black;
+}
+
+.social-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.ico-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+    .nav-bar {
+        padding: 5px;
+    }
+    
+    .name-title {
+        font-size: 40px;
+    }
+
+    .name-title:hover {
+        font-size: 50px;
+        transition: 1s;
+    }
+    
+    .title {
+        padding: 30%;
+        font-size: smaller;
+        text-align: center;
+    }
+
+    .obj-title {
+        width: initial;
+        text-align: center;
+    }
+
+    .one-pages, .project-container, .objective {
+        display: initial;
+    }
+
+    .project-container {
+        width: initial;
+    }
+
+    .page-img {
+        width: 150%;
+        text-align: center;
+    }
+
+    .social-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
