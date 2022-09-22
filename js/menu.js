@@ -9,7 +9,6 @@ hamburgerBtn.addEventListener('click', () => { //evento para esconder o reaparec
   if (sideMenu.classList.contains('open') || 
   !(sideMenu.classList.contains('open'))) {
     cardArray = document.querySelectorAll(".card");
-    console.log("asdasd ");
     for (let i = 0; i < cardArray.length; i++) {
       cardArray[i].classList.toggle('hide');
     }
