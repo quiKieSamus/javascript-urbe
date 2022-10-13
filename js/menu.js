@@ -1,3 +1,4 @@
+
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const sideMenu = document.getElementById('sideMenu')
 
