@@ -42,7 +42,6 @@ const checkWords = (ta) => {
     return results;
 }
 
-
 const textArea = document.getElementById("tArea");
 textArea.addEventListener('input', checkWords);
 textArea.addEventListener('input', update);
