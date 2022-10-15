@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    border: 10px solid;
+    background-image: linear-gradient(to bottom right, #000263, #e34ac8);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#tArea {
+    width: 50%;
+    border-radius: 10px;
+    border-top: #e34ac8 solid 5px;
+    border-left: #e34ac8 solid 5px;
+    border-bottom: #000263 solid 5px;
+    border-right: #000263 solid 5px;
+}
