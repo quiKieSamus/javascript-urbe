@@ -180,6 +180,10 @@ html, body {
 
     .project-container {
         width: initial;
+        display: flex;
+        flex-direction: column  ;
+        align-items: center;
+        max-width: 50%;
     }
 
     .page-img {
