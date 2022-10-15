@@ -100,11 +100,24 @@ html {
 }
 
 .project-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 54%;
+    display: grid;
+    grid-template-columns: 1fr;
     
+}
+
+.pro-item {
+    max-width: 30%;
+    width: inherit;
+    height: inherit;
+    padding: 30px;
+    margin: 5px auto;
+    border: black solid 5px;
+    transition: 0.3s;
+}
+
+.pro-item:hover {
+    border: 7px solid darkblue;
+    transition: 0.3s;
 }
 
 .pro-link {
