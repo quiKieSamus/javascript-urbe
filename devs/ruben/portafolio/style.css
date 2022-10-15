@@ -3,13 +3,12 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
-html {
-    height: 100%;
-    top: 0;
+html, body {
+    margin: 0;
 }
 
 .nav-bar {
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     text-align: center;
     padding: 20px;
     top: 0;
@@ -37,7 +36,7 @@ html {
 }
 
 .nav-list-item:hover {
-    background-color: blue;
+    background-color: rgb(0, 0, 255);
     cursor: pointer;
     transition: 0.5s;
 }
@@ -45,7 +44,7 @@ html {
 .title {    
     text-align: center;
     color: rgb(208, 204, 204);
-    background-color: blue;
+    background-color: rgb(0, 0, 255);
     border-radius: 10px;
     font-family: 'Courier New', Courier, monospace;
     padding: 15% 0px;
@@ -90,7 +89,7 @@ html {
 }
 
 .name-title:hover {
-    color: black;
+    color: rgb(0, 0, 0);
     font-size: 100px;
     transition: 1s;
 }
@@ -106,9 +105,6 @@ html {
 }
 
 .pro-item {
-    max-width: 30%;
-    width: inherit;
-    height: inherit;
     padding: 30px;
     margin: 5px auto;
     border: black solid 5px;
@@ -118,15 +114,16 @@ html {
 .pro-item:hover {
     border: 7px solid darkblue;
     transition: 0.3s;
+    padding: 50px;
 }
 
 .pro-link {
-    color: blueviolet;
+    color: rgb(138, 43, 226);
     transition: 2s;
 }
 
 .pro-link:hover {
-    color: blue;
+    color: rgb(0, 0, 255);
     transition: 0.3s;
 }
 
@@ -138,7 +135,7 @@ html {
 .page-img {
     width: 100%;
     border-radius: 5px;
-    border: solid 5px black;
+    border: solid 5px rgb(0, 0, 0);
 }
 
 .social-container {
