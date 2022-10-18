@@ -6,6 +6,7 @@
 #906090
 */
 
+/*Estilos barra lateral de menu y responsive*/
 html {
     min-height: 100vh;
   }
@@ -18,10 +19,8 @@ html {
   * {
       box-sizing: border-box;
   }
-  .title {
-    color: #301860;
-  }
-  .container {
+  
+  .container-bar {
       padding: 40px;
       margin: 0 auto;
       max-width: 1000px;
@@ -110,6 +109,55 @@ html {
     }
   }
 
+/*Estilos cuerpo*/
+.container {
+  width: auto;
+  margin: 10px;
+  align-items: center;
+}
+.banner-home {
+  width: 400px;
+}
+.title {
+  color: #301860;
+  text-align: center;
+  font-weight: bold;
+}
+
+.text-description {
+  font-size: 14px;
+  text-align: justify;
+}
+.text-sub {
+  color: red;
+  font-weight: bold;
+}
+.linea {
+  color:#301860;
+  font-size: 30px;
+  text-align: center;
+}
+
+#image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.subtitle {
+  font-size: 18px;
+  color: #483078;
+}
+.container-frase {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  color:#604878;
+}
+#image-container>img {
+  max-width: 80%;
+}
   /*Estilos tarjetas de presentación*/
   .card {
     position: relative;
@@ -215,3 +263,6 @@ html {
     background: #efefef;
     flex-wrap: wrap;
 }
+
+/*Aqui estilos para la pagina de pryectos*/
+
