@@ -4,4 +4,4 @@ const time = () => {
     watchArea.innerHTML = `${date.getHours()}: ${date.getMinutes()} :${date.getSeconds()}`;
     setTimeout(() => {time()}, 1000);
 }
-time()
+time();
