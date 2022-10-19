@@ -82,7 +82,7 @@ html {
     cursor: pointer;
   }
   
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1000px) {
   
     body {
       margin-left: 0px;
@@ -99,11 +99,13 @@ html {
     
     .nav-items > li{
       list-style-type: none;
+      font-size: 50px;
       margin-bottom: 10px;
       text-align: center;
     }
     
     #hamburgerBtn {
+      font-size: 30px;
       display: inline-block;
       z-index: 10;
     }
