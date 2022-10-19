@@ -57,7 +57,7 @@
 	color: #323068;
 	text-align: center;
 }
-img:hover{
+.img-proyecto:hover{
 	transform: translateY(-15px);
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
@@ -72,6 +72,10 @@ img:hover{
 .main .trabajos .contenedor-trabajos .trabajo{
 	width: 27%;
 	margin-bottom: 40px;
+}
+
+.thumb {
+	text-align: center;
 }
 
 .main .trabajos .contenedor-trabajos .trabajo .thumb {
@@ -111,6 +115,11 @@ img:hover{
 	}
 }
 
+
+
+/* .contenedor-trabajos {
+	flex-direction: column;
+} */
 
 
  
