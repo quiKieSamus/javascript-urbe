@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    border: blue 3px solid;
+    margin: 0;
+}
+
+.container {
+    height: inherit;
+    border: red 3px solid;
+}
+
+.search-area {
+    border: yellow 3px solid;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-search {
+    margin: 5px auto;
+}
+
+.btn-search {
+    margin: 5px auto;
+}
+
+.poke-container {
+    display: none;
+}
+
+.poke-container {
+    margin: 5px;
+    border: black solid 2px;
+    text-align: center;
+    padding: 10%;
+}
+
