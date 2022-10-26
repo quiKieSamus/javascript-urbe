@@ -38,6 +38,11 @@ body {
     margin: 5px;
     border: black solid 2px;
     text-align: center;
-    padding: 10%;
+    padding: 5%;
+}
+
+.type-container {
+    display: flex;
+    justify-content: space-around;
 }
 

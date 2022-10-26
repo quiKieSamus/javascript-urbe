@@ -32,13 +32,13 @@ btnSearch.addEventListener('click', () => {
             let pokeTypeElm0 = document.createElement('p');
             pokeTypeElm0.innerHTML = pokeTypes[0].type.name;
 
-            // let pokeType1bool = false;
-            // console.log(pokeTypes[1]);
-            // if (pokeTypes[1] !== 'undefined') {
-            // let pokeTypeElm1 = document.createElement('p');
-            // pokeTypeElm1.innerHTML = pokeTypes[1].type.name;
-            // pokeType1bool = true;
-            // }
+            let pokeType1bool = false;
+            console.log(pokeTypes[1]);
+            let pokeTypeElm1 = document.createElement('p');
+            if (typeof pokeTypes[1] !== 'undefined') {
+            pokeTypeElm1.innerHTML = pokeTypes[1].type.name;
+            pokeType1bool = true;
+            }
 
             let pokeSpriteContainer = document.createElement('div');
             let pokeTypeContainer = document.createElement('div');
@@ -48,13 +48,14 @@ btnSearch.addEventListener('click', () => {
             pokeContainer.appendChild(pokeNameElm);
             pokeContainer.appendChild(pokeSpriteContainer);
             pokeContainer.appendChild(pokeTypeContainer);
+            pokeTypeContainer.classList = "type-container";
 
             pokeSpriteContainer.appendChild(pokeImgElmBack);
             pokeSpriteContainer.appendChild(pokeImgElmFront);
 
             pokeTypeContainer.appendChild(pokeTypeElm0);
-            // if (pokeType1bool === true) {
-            // pokeTypeContainer.appendChild(pokeTypeElm1);
-            // }
+            if (pokeType1bool === true) {
+            pokeTypeContainer.appendChild(pokeTypeElm1);
+            }
         });
 });
