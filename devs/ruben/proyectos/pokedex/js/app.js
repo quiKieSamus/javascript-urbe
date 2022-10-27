@@ -1,3 +1,48 @@
+class Pokemon {
+    constructor(id, name, types, spriteFront, spriteBack, skills, weight, stats) {
+        this.id = id;
+        this.name = name;
+        this.types = types;
+        this.spriteFront = spriteFront;
+        this.spriteBack = spriteBack;
+        this.skills = skills;
+        this.weight = weight;
+        this.stats = stats;
+    }
+
+    getName = () => {
+        return this.name;
+    }
+
+    getId = () => {
+        return this.id;
+    }
+
+    getTypes = (i) => {
+        return this.types[i];
+    }
+
+    getSpriteFront = () => {
+        return this.spriteFront;
+    }
+
+    getSpriteBack = () => {
+        return this.spriteBack;
+    }
+
+    getSkills = (i) => {
+        return this.skills[i];
+    }
+
+    getWeight = () => {
+        return this.weight;
+    }
+
+    getStats = (i) => {
+        return this.stats[i];
+    }
+}
+
 const btnSearch = document.getElementById("btn-search");
 
 btnSearch.addEventListener('click', () => {
@@ -16,28 +61,33 @@ btnSearch.addEventListener('click', () => {
             let pokeSpriteBack = data.sprites.back_default;
             let pokeId = data.id;
             let pokeTypes = data.types;
+            let pokeStats = data.stats;
+            let pokeWeight = data.weight;
+            let pokeSkills = data.abilities
+
+            const pokemon = new Pokemon(pokeId, pokeName, pokeTypes, pokeSpriteFront, pokeSpriteBack, pokeSkills, pokeWeight, pokeStats);
 
             const pokeIdElm = document.createElement('p');
-            pokeIdElm.innerHTML = pokeId;
+            pokeIdElm.innerHTML = pokemon.getId();
 
             let pokeNameElm = document.createElement("h2");
-            pokeNameElm.innerHTML = pokeName;
+            pokeNameElm.innerHTML = pokemon.getName();
 
             let pokeImgElmFront = document.createElement("img");
-            pokeImgElmFront.src = pokeSpriteFront;
+            pokeImgElmFront.src = pokemon.getSpriteFront();
 
             let pokeImgElmBack = document.createElement('img');
-            pokeImgElmBack.src = pokeSpriteBack;
+            pokeImgElmBack.src = pokemon.getSpriteBack();
 
             let pokeTypeElm0 = document.createElement('p');
-            pokeTypeElm0.innerHTML = pokeTypes[0].type.name;
+            pokeTypeElm0.innerHTML = pokemon.getTypes(0).type.name;
 
             let pokeType1bool = false;
-            console.log(pokeTypes[1]);
+            console.log(pokemon.getTypes(1));
             let pokeTypeElm1 = document.createElement('p');
-            if (typeof pokeTypes[1] !== 'undefined') {
-            pokeTypeElm1.innerHTML = pokeTypes[1].type.name;
-            pokeType1bool = true;
+            if (typeof pokemon.getTypes(1) !== 'undefined') {
+                pokeTypeElm1.innerHTML = pokemon.getTypes(1).type.name;
+                pokeType1bool = true;
             }
 
             let pokeSpriteContainer = document.createElement('div');
@@ -55,7 +105,7 @@ btnSearch.addEventListener('click', () => {
 
             pokeTypeContainer.appendChild(pokeTypeElm0);
             if (pokeType1bool === true) {
-            pokeTypeContainer.appendChild(pokeTypeElm1);
+                pokeTypeContainer.appendChild(pokeTypeElm1);
             }
         });
 });

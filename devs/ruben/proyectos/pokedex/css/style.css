@@ -26,15 +26,23 @@ body {
     margin: 5px auto;
 }
 
-.btn-search {
+#btn-search {
     margin: 5px auto;
+    height: 50px;
+    width: 150px;
+    font-size: 1em;
+    color: white;
+    border: none;
+    background-color: rgb(1, 1, 32);
+}
+
+#btn-search:hover {
+    border: solid 1px darkred;
 }
 
 .poke-container {
     display: none;
-}
-
-.poke-container {
+    background-color: rgb(228, 159, 68);
     margin: 5px;
     border: black solid 2px;
     text-align: center;
