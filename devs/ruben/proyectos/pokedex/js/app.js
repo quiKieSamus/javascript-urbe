@@ -123,10 +123,10 @@ class Card {
 
 		for (let i = 0; i < 6; i++) {
 			if (i === 0) {
-				pokeStatsContainer.innerHTML = `${this.pokemon.getStats(i).stat.name}: ${this.pokemon.getStats(i).base_stat}`;
+				pokeStatsContainer.innerHTML = `<span class="poke-stat">${this.pokemon.getStats(i).stat.name}: ${this.pokemon.getStats(i).base_stat}</span>`;
 			}
 			if (i !== 0) {
-				pokeStatsContainer.innerHTML += `<br>${this.pokemon.getStats(i).stat.name}: ${this.pokemon.getStats(i).base_stat}`;
+				pokeStatsContainer.innerHTML += `<br><span class="poke-stat">${this.pokemon.getStats(i).stat.name}: ${this.pokemon.getStats(i).base_stat}</span>`;
 			}
 
 		}
