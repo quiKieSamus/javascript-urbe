@@ -44,19 +44,28 @@ class Pokemon {
 }
 
 class Card {
-	constructor(pokemon)  {
+	constructor(pokemon, container)  {
 		this.pokemon = pokemon;
+		this.container = container;
 	}
 
+	getContainer = () => {
+		return this.container;
+	}
 	//method that generates card that will contain all of the pokemon data
 	generatePokemonCard() {
-		const pokeContainer = document.querySelector(".poke-container");
-		pokeContainer.innerHTML = "";
-		const pokeIdElm = document.createElement('p');
-		pokeIdElm.innerHTML = this.pokemon.getId();
+		this.getContainer().innerHTML = "";
+		
+		// const pokeIdElm = document.createElement('p');
+		// pokeIdElm.innerHTML = this.pokemon.getId();
+		const sectionId = this.createSection('id', 'h3');
+		sectionId.innerHTML = this.pokemon.getId();
 
-		let pokeNameElm = document.createElement("h2");
-		pokeNameElm.innerHTML = this.pokemon.getName();
+		const sectionName = this.createSection('name', 'h1');
+		sectionName.innerHTML = this.pokemon.getName();
+
+		// let pokeNameElm = document.createElement("h2");
+		// pokeNameElm.innerHTML = this.pokemon.getName();
 
 		let pokeImgElmFront = document.createElement("img");
 		pokeImgElmFront.src = this.pokemon.getSpriteFront();
@@ -95,30 +104,31 @@ class Card {
 		let pokeSkillContainer = document.createElement('div');
 		let pokeStatsContainer = document.createElement('div');
 
-		pokeContainer.appendChild(pokeIdElm);
-		pokeContainer.appendChild(document.createElement('hr'));
-		pokeContainer.appendChild(pokeNameElm);
-		pokeContainer.appendChild(pokeSpriteContainer);
+		// this.getContainer().appendChild(pokeIdElm);
+		this.getContainer().appendChild(sectionId)
+		this.getContainer().appendChild(document.createElement('hr'));
+		this.getContainer().appendChild(sectionName);
+		this.getContainer().appendChild(pokeSpriteContainer);
 		const typeHeading = document.createElement('h3');
 		typeHeading.innerHTML = "Types: "
-		pokeContainer.appendChild(typeHeading);
-		pokeContainer.appendChild(document.createElement('hr'));
-		pokeContainer.appendChild(pokeTypeContainer);
+		this.getContainer().appendChild(typeHeading);
+		this.getContainer().appendChild(document.createElement('hr'));
+		this.getContainer().appendChild(pokeTypeContainer);
 		const skillHeading = document.createElement('h3');
 		skillHeading.innerHTML = "Abilities: "
-		pokeContainer.appendChild(skillHeading);
-		pokeContainer.appendChild(document.createElement('hr'));
-		pokeContainer.appendChild(pokeSkillContainer);
+		this.getContainer().appendChild(skillHeading);
+		this.getContainer().appendChild(document.createElement('hr'));
+		this.getContainer().appendChild(pokeSkillContainer);
 		const weightHeding = document.createElement('h3');
 		weightHeding.innerHTML = "Weight: ";
-		pokeContainer.appendChild(weightHeding);
-		pokeContainer.appendChild(document.createElement('hr'));
-		pokeContainer.appendChild(pokeWeightElm);
+		this.getContainer().appendChild(weightHeding);
+		this.getContainer().appendChild(document.createElement('hr'));
+		this.getContainer().appendChild(pokeWeightElm);
 		const statsHeading = document.createElement("h3");
 		statsHeading.innerHTML = "Stats: ";
-		pokeContainer.appendChild(statsHeading);
-		pokeContainer.appendChild(document.createElement("hr"))
-		pokeContainer.appendChild(pokeStatsContainer);
+		this.getContainer().appendChild(statsHeading);
+		this.getContainer().appendChild(document.createElement("hr"))
+		this.getContainer().appendChild(pokeStatsContainer);
 
 
 		for (let i = 0; i < 6; i++) {
@@ -147,8 +157,22 @@ class Card {
 		if (pokeSkill1bool) {
 			pokeSkillContainer.appendChild(pokeSkillElm1);
 		}
-		pokeContainer.style.display = "block";
+		this.getContainer().style.display = "block";
 		return true;
+	}
+
+	createSection = (section, el) => {
+		const elCreation = document.createElement(el)
+		if (section === 'id') {
+			elCreation.innerHTML = this.pokemon.getId();
+		}
+		if (section === 'name') {
+			elCreation.innerHTML = this.pokemon.getName();
+		}
+		if (section === '') {
+
+		}
+		return elCreation;
 	}
 }
 
@@ -174,10 +198,10 @@ btnSearch.addEventListener('click', () => {
 
 			//pokemon created
 			const pokemon = new Pokemon(pokeId, pokeName, pokeTypes, pokeSpriteFront, pokeSpriteBack, pokeSkills, pokeWeight, pokeStats);
-			
+			const pokeContainer = document.querySelector(".poke-container");
 			
 			//card created
-			const card = new Card(pokemon);
+			const card = new Card(pokemon, pokeContainer);
 			card.generatePokemonCard();
 		});
 
