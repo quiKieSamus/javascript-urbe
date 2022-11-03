@@ -148,6 +148,7 @@ class Card {
 			pokeSkillContainer.appendChild(pokeSkillElm1);
 		}
 		pokeContainer.style.display = "block";
+		return true;
 	}
 }
 
@@ -173,6 +174,7 @@ btnSearch.addEventListener('click', () => {
 
 			//pokemon created
 			const pokemon = new Pokemon(pokeId, pokeName, pokeTypes, pokeSpriteFront, pokeSpriteBack, pokeSkills, pokeWeight, pokeStats);
+			
 			
 			//card created
 			const card = new Card(pokemon);
