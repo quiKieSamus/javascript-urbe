@@ -61,20 +61,23 @@ class Card {
 		const sectionId = this.createSection('id', 'h3');
 		sectionId.innerHTML = this.pokemon.getId();
 
+		// let pokeNameElm = document.createElement("h2");
+		// pokeNameElm.innerHTML = this.pokemon.getName();
 		const sectionName = this.createSection('name', 'h1');
 		sectionName.innerHTML = this.pokemon.getName();
 
-		// let pokeNameElm = document.createElement("h2");
-		// pokeNameElm.innerHTML = this.pokemon.getName();
+		// let pokeImgElmFront = document.createElement("img");
+		// pokeImgElmFront.src = this.pokemon.getSpriteFront();
+		const sectionImgFront = this.createSection('sprite', 'img', 0);
 
-		let pokeImgElmFront = document.createElement("img");
-		pokeImgElmFront.src = this.pokemon.getSpriteFront();
+		// let pokeImgElmBack = document.createElement('img');
+		// pokeImgElmBack.src = this.pokemon.getSpriteBack();
+		const sectionImgBack = this.createSection('sprite', 'img', 1);
 
-		let pokeImgElmBack = document.createElement('img');
-		pokeImgElmBack.src = this.pokemon.getSpriteBack();
 
-		let pokeTypeElm0 = document.createElement('p');
-		pokeTypeElm0.innerHTML = this.pokemon.getTypes(0).type.name;
+		// let pokeTypeElm0 = document.createElement('p');
+		// pokeTypeElm0.innerHTML = this.pokemon.getTypes(0).type.name;
+		const sectionType = this.createSection("type", "p");
 
 		let pokeWeightElm = document.createElement('p');
 		pokeWeightElm.innerHTML = `${this.pokemon.getWeight() / 10}kg`;
@@ -82,13 +85,13 @@ class Card {
 		let pokeSkillElm0 = document.createElement('p');
 		pokeSkillElm0.innerHTML = this.pokemon.getSkills(0).ability.name;
 
-		let pokeType1bool = false;
-		//checking if pokemon has a second type
-		let pokeTypeElm1 = document.createElement('p');
-		if (typeof this.pokemon.getTypes(1) !== 'undefined') {
-			pokeTypeElm1.innerHTML = this.pokemon.getTypes(1).type.name;
-			pokeType1bool = true;
-		}
+		// let pokeType1bool = false;
+		// checking if pokemon has a second type
+		// let pokeTypeElm1 = document.createElement('p');
+		// if (typeof this.pokemon.getTypes(1) !== 'undefined') {
+		// 	pokeTypeElm1.innerHTML = this.pokemon.getTypes(1).type.name;
+		// 	pokeType1bool = true;
+		// }
 
 		let pokeSkill1bool = false;
 		//checking if pokemon has a second ability
@@ -145,12 +148,19 @@ class Card {
 		pokeSkillContainer.classList = "type-container";
 		pokeStatsContainer.classList = "type-container stats";
 
-		pokeSpriteContainer.appendChild(pokeImgElmBack);
-		pokeSpriteContainer.appendChild(pokeImgElmFront);
+		pokeSpriteContainer.appendChild(sectionImgFront);
+		pokeSpriteContainer.appendChild(sectionImgBack);
 
-		pokeTypeContainer.appendChild(pokeTypeElm0);
-		if (pokeType1bool) {
-			pokeTypeContainer.appendChild(pokeTypeElm1);
+		// if (pokeType1bool) {
+		// 	pokeTypeContainer.appendChild(pokeTypeElm1);
+		// }
+
+		if (Array.isArray(sectionType)) {
+			for (let i = 0; i < sectionType.length; i++) {
+				pokeTypeContainer.appendChild(sectionType[i]);
+			}
+		} else {
+			pokeTypeContainer.appendChild(sectionType);
 		}
 
 		pokeSkillContainer.appendChild(pokeSkillElm0);
@@ -161,16 +171,29 @@ class Card {
 		return true;
 	}
 
-	createSection = (section, el) => {
-		const elCreation = document.createElement(el)
+	//createSection method: creates a section (pokemon name, id, sprites, stats, etc...) on the poke-container card
+	//Section parameter means the section itself
+	//el parameter defines the type of element in the html that will be the section
+	//op parameter gives some functionality for some sections such as in the sprite 
+	createSection = (section, el, op) => {
+		let elCreation = document.createElement(el)
 		if (section === 'id') {
 			elCreation.innerHTML = this.pokemon.getId();
 		}
 		if (section === 'name') {
 			elCreation.innerHTML = this.pokemon.getName();
 		}
-		if (section === '') {
-
+		if (section === 'sprite') {
+			op === 0 ? elCreation.src = this.pokemon.getSpriteFront() : elCreation.src = this.pokemon.getSpriteBack();
+		}
+		if (section === 'type') {
+			if (typeof this.pokemon.getTypes(1) !== 'undefined') {
+				elCreation = [document.createElement(el), document.createElement(el)]
+				elCreation[0].innerHTML = this.pokemon.getTypes(0).type.name;
+				elCreation[1].innerHTML = this.pokemon.getTypes(1).type.name;
+			} else {
+				elCreation.innerHTML = this.pokemon.getTypes(0).type.name;
+			}
 		}
 		return elCreation;
 	}

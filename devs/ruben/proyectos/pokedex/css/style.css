@@ -5,7 +5,7 @@
 html, body {
     /* height: 100%; */
     margin: 0;
-    background-color: rgb(3, 170, 182);
+    background-color: rgb(4, 94, 100);
     scroll-behavior: smooth;
 }
 .container, .poke-container, .type-container {
@@ -35,10 +35,10 @@ html, body {
 }
 
 .poke-container {
-    color: white;
+    color: black;
     display: none;
-    background-color: rgb(0, 0, 0);
-    border: 3px white solid;
+    background-color: rgb(229, 255, 0);
+    border: 3px rgb(17, 0, 255) solid;
     border-radius: 5px;
     width: 50vw;
     height: inherit;
