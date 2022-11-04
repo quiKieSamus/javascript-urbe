@@ -37,8 +37,8 @@ html, body {
 .poke-container {
     color: black;
     display: none;
-    background-color: rgb(229, 255, 0);
-    border: 3px rgb(17, 0, 255) solid;
+    background-color: #ffcb05;
+    border: 3px #2a74ba solid;
     border-radius: 5px;
     width: 50vw;
     height: inherit;
