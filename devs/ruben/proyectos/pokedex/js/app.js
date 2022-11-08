@@ -56,51 +56,21 @@ class Card {
 	generatePokemonCard() {
 		this.getContainer().innerHTML = "";
 
-		// const pokeIdElm = document.createElement('p');
-		// pokeIdElm.innerHTML = this.pokemon.getId();
 		const sectionId = this.createSection('id', 'h3');
 
-		// let pokeNameElm = document.createElement("h2");
-		// pokeNameElm.innerHTML = this.pokemon.getName();
 		const sectionName = this.createSection('name', 'h1');
 
-		// let pokeImgElmFront = document.createElement("img");
-		// pokeImgElmFront.src = this.pokemon.getSpriteFront();
 		const sectionImgFront = this.createSection('sprite', 'img', 0);
 
-		// let pokeImgElmBack = document.createElement('img');
-		// pokeImgElmBack.src = this.pokemon.getSpriteBack();
 		const sectionImgBack = this.createSection('sprite', 'img', 1);
 
-
-		// let pokeTypeElm0 = document.createElement('p');
-		// pokeTypeElm0.innerHTML = this.pokemon.getTypes(0).type.name;
 		const sectionType = this.createSection("type", "i");
 
-		// let pokeWeightElm = document.createElement('p');
-		// pokeWeightElm.innerHTML = `${this.pokemon.getWeight() / 10}kg`;
 		const sectionWeight = this.createSection("weight", "p");
 
-		// let pokeSkillElm0 = document.createElement('p');
-		// pokeSkillElm0.innerHTML = this.pokemon.getSkills(0).ability.name;
 		const sectionSkill = this.createSection("skills", 'h3');
-		// let pokeType1bool = false;
-		// checking if pokemon has a second type
-		// let pokeTypeElm1 = document.createElement('p');
-		// if (typeof this.pokemon.getTypes(1) !== 'undefined') {
-		// 	pokeTypeElm1.innerHTML = this.pokemon.getTypes(1).type.name;
-		// 	pokeType1bool = true;
-		// }
 
-		// let pokeSkill1bool = false;
-		// //checking if pokemon has a second ability
-		// let pokeSkillElm1 = document.createElement('p');
-		// if (typeof this.pokemon.getSkills(1) !== 'undefined') {
-		// 	pokeSkillElm1.innerHTML = this.pokemon.getSkills(1).ability.name;
-		// 	pokeSkill1bool = true;
-		// }
-		const sectionStats = this.createSection("stats", "h4");
-		console.log(sectionStats);
+		const sectionStats = this.createSection("stats", "h4"); 	
 
 		//containers
 		let pokeSpriteContainer = document.createElement('div');
@@ -135,16 +105,6 @@ class Card {
 		this.getContainer().appendChild(pokeStatsContainer);
 
 
-		// for (let i = 0; i < 6; i++) {
-		// 	if (i === 0) {
-		// 		pokeStatsContainer.innerHTML = `<span class="poke-stat">${this.pokemon.getStats(i).stat.name}: ${this.pokemon.getStats(i).base_stat}</span>`;
-		// 	}
-		// 	if (i !== 0) {
-		// 		pokeStatsContainer.innerHTML += `<br><span class="poke-stat">${this.pokemon.getStats(i).stat.name}: ${this.pokemon.getStats(i).base_stat}</span>`;
-		// 	}
-
-		// }
-
 		pokeTypeContainer.classList = "type-container";
 		pokeSkillContainer.classList = "type-container";
 		pokeStatsContainer.classList = "type-container stats";
@@ -152,10 +112,7 @@ class Card {
 		pokeSpriteContainer.appendChild(sectionImgFront);
 		pokeSpriteContainer.appendChild(sectionImgBack);
 
-		// if (pokeType1bool) {
-		// 	pokeTypeContainer.appendChild(pokeTypeElm1);
-		// }
-
+	
 		if (Array.isArray(sectionType)) {
 			for (let i = 0; i < sectionType.length; i++) {
 				pokeTypeContainer.appendChild(sectionType[i]);
@@ -171,9 +128,6 @@ class Card {
 		} else {
 			pokeSkillContainer.appendChild(sectionSkill);
 		}
-		// if (pokeSkill1bool) {
-		// 	pokeSkillContainer.appendChild(pokeSkillElm1);
-		// }
 
 		for (let i = 0; i < sectionStats.length; i++) {
 			pokeStatsContainer.appendChild(sectionStats[i]);
