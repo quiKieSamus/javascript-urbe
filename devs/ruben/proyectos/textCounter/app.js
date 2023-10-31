@@ -1,47 +1,34 @@
-const checkWords = (ta) => {
-    let target = ta.target;
-    // let wordCounter = 0;
-    let spacesCounter = 0;
-    let letterArray = [];
-    let wordArray = [];
-    for (let i = 0; i < target.value.length; i++) {
-        const targetValue = target.value[i];
-        if (targetValue !== " ") {
-            letterArray.push(targetValue);
-        } else {
-            wordArray.push(letterArray.join(""));
-            letterArray = [];
-            spacesCounter++;
-            console.log(letterArray);
-        }
+class CounterOfWords {
+    /**
+     * @param {HTMLInputElement} inputElement
+     * @returns {number}
+     */
+    static getSpaces(text) {
+        const spaces = text?.match(/\s/g);
+        return Array.isArray(spaces) ? spaces.length : 0;
+    }
 
+    static getWords(text) {
+        const words = text?.match(/\b[a-zA-Z]{1}[a-zA-Z]*\b/g);
+        return Array.isArray(words) ? words.length : 0;
     }
-    for (let i = target.value.length - 1; i > 0; i--) {
-        const targetValue = target.value[i];
-        if (targetValue !== " ") {
-            letterArray.push(targetValue);
-        } else {
-            letterArray.reverse();
-            const word = letterArray.join("");
-            wordArray.push(word);
-            // console.log(wordArray);
-            letterArray = [];
-            break;
-        }
-    }
-    console.log(wordArray);
-    // console.log(spacesCounter);
-    const results = {
-        words: wordArray.length,
-        spaces: spacesCounter,
-        letters: target.value.length - spacesCounter,
-    };
-    // console.log(targetLetters);
-    const result = document.querySelector(".result");
-    result.innerHTML = `Letras: ${results.letters}; Palabras: ${results.words}; Espacios: ${results.spaces}`;
-    return results;
+
+    static getLetters(text) {
+        const splittedText = text.split('');
+        const letters = splittedText.filter((char) => {
+            const regex = new RegExp(/[a-zA-Z]/g);
+            return regex.test(char);
+        });
+        return letters.length;
+    }  
 }
 
 const textArea = document.getElementById("tArea");
-textArea.addEventListener('input', checkWords);
-textArea.addEventListener('input', update);
+const result = document.querySelector('.result');
+textArea.addEventListener('input', (e) => {
+    const value = e.target.value;
+    const words = CounterOfWords.getWords(value);
+    const letters = CounterOfWords.getLetters(value);
+    const spaces = CounterOfWords.getSpaces(value);
+    result.textContent = `Espacios: ${spaces}; Letras: ${letters}; Palabras: ${words}`;
+});
